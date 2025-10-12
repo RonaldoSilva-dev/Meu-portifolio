@@ -1,0 +1,51 @@
+// ===== IMPORTAÇÕES =====
+@import 'variables';  // Importa as variáveis primeiro
+@import 'mixins';     // Depois os mixins (eles usam as variáveis)
+@import 'header';     // Estilos do cabeçalho
+//@import 'about'; // Estilos da seção (sobre mim)
+@import 'projects'; // Estilos da seção (Projetos)
+@import 'contact'; // Estilos da seção contato.
+@import 'footer'; // Estilos da seção do rodapé.
+// Vamos importar os outros depois que criarmos
+
+// ===== RESET BÁSICO =====
+* {
+  box-sizing: border-box;  // Inclui padding e border no cálculo de largura/altura
+  margin: 0;               // Remove margens padrão
+  padding: 0;              // Remove paddings padrão
+}
+
+// ===== ESTILOS GLOBAIS =====
+body {
+  font-family: $font-primary;     // Usa a fonte definida nas variáveis
+  font-size: $font-size-base;     // Tamanho base de fonte
+  color: $text-color;             // Cor do texto
+  background: $background-color;  // Cor de fundo
+  line-height: 1.6;               // Espaçamento entre linhas
+  padding-top: 60px;              // Compensa o header fixo
+}
+
+// ===== COMPENSAÇÃO PARA SCROLL SUAVE =====
+// Adiciona um "espaço" antes de cada seção para o scroll suave
+section {
+  scroll-margin-top: 80px; // Ajuste conforme a altura do seu header
+}
+
+// ===== SEÇÃO HERO (INÍCIO) =====
+.hero {
+  @include flex-center(column);   // Centraliza em coluna
+  height: 100vh;                  // Altura total da tela
+  text-align: center;             // Texto centralizado
+  background: linear-gradient(135deg, $primary-color, $secondary-color); // Gradiente
+  
+  h1 {
+    color: $white;                // Texto branco
+    font-size: 2.5rem;            // Tamanho grande
+    margin-bottom: $spacing-md;   // Espaço abaixo
+  }
+  
+  p {
+    color: $white;
+    font-size: 1.2rem;
+  }
+}

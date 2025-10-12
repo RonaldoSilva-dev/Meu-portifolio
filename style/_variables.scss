@@ -1,0 +1,27 @@
+// ===== CORES PRINCIPAIS =====
+$primary-color: #3498db;        // Azul principal do site
+$secondary-color: #2ecc71;      // Verde para destaques
+$text-color: #333;              // Cor do texto (cinza escuro)
+$background-color: #f9f9f9;     // Cor de fundo do site
+$white: #fff;                   // Branco
+$gray-light: #f5f5f5;           // Cinza claro para fundos
+$gray-dark: #777;               // Cinza escuro para textos secundários
+
+// ===== TIPOGRAFIA =====
+$font-primary: 'Arial', sans-serif;  // Fonte principal
+$font-size-base: 16px;               // Tamanho base do texto
+
+// ===== ESPAÇAMENTOS =====
+$spacing-sm: 1rem;    // Espaço pequeno (16px)
+$spacing-md: 1.5rem;  // Espaço médio (24px)
+$spacing-lg: 2rem;    // Espaço grande (32px)
+
+// ===== RESPONSIVIDADE =====
+$breakpoint-mobile: 480px;   // Celulares
+$breakpoint-tablet: 768px;   // Tablets
+$breakpoint-desktop: 1024px; // Desktops
+
+// ===== EFEITOS VISUAIS =====
+$border-radius: 8px;                               // Arredondamento de bordas
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);        // Sombra padrão
+$transition: all 0.3s ease;                        // Transição suave

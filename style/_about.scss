@@ -1,0 +1,59 @@
+// ===== SEÇÃO SOBRE MIM =====
+.about {
+  padding: $spacing-lg 0;           // Espaço acima e abaixo (32px)
+  background-color: $white;         // Fundo branco
+  text-align: center;               // Texto centralizado
+
+  // Container para limitar a largura e centralizar
+  .about-container {
+    max-width: 800px;               // Largura máxima do conteúdo
+    margin: 0 auto;                 // Centraliza horizontalmente
+    padding: 0 $spacing-md;         // Espaço nas laterais (24px)
+  }
+
+  // Título da seção
+  h2 {
+    color: $primary-color;          // Azul do site
+    font-size: 2rem;                // Tamanho grande
+    margin-bottom: $spacing-md;     // Espaço abaixo do título
+  }
+
+  // Parágrafo de descrição
+  p {
+    font-size: 1.1rem;              // Texto um pouco maior
+    line-height: 1.6;               // Espaçamento entre linhas
+    color: $gray-dark;              // Cinza escuro
+    margin-bottom: $spacing-md;     // Espaço abaixo do parágrafo
+  }
+
+  // Container para habilidades (vamos adicionar depois)
+  .skills {
+    @include flex-center(row);      // Centraliza os itens
+    flex-wrap: wrap;                // Permite quebra de linha
+    gap: $spacing-sm;               // Espaço entre os itens
+    margin-top: $spacing-lg;        // Espaço acima das habilidades
+  }
+
+  // ===== RESPONSIVIDADE =====
+  // Tablet (768px ou mais)
+  @include respond-to($breakpoint-tablet) {
+    padding: $spacing-lg * 1.5 0;   // Aumenta o espaçamento vertical
+
+    h2 {
+      font-size: 2.5rem;            // Título maior em tablets
+    }
+
+    p {
+      font-size: 1.2rem;            // Texto maior em tablets
+    }
+  }
+
+  // Desktop (1024px ou mais)
+  @include respond-to($breakpoint-desktop) {
+    padding: $spacing-lg * 2 0;     // Ainda mais espaçamento
+
+    .about-container {
+      max-width: 1000px;            // Container mais largo
+    }
+  }
+}

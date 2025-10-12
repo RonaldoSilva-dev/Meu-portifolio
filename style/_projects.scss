@@ -1,0 +1,108 @@
+// ===== SEÇÃO PROJETOS =====
+.projects {
+  padding: $spacing-lg 0;           // Espaço acima e abaixo
+  background-color: $gray-light;    // Fundo cinza claro
+
+  // Container para centralizar o conteúdo
+  .projects-container {
+    max-width: 1200px;              // Largura máxima
+    margin: 0 auto;                 // Centraliza
+    padding: 0 $spacing-md;         // Espaço nas laterais
+  }
+
+  // Título da seção
+  h2 {
+    color: $primary-color;          // Azul do site
+    font-size: 2rem;
+    text-align: center;             // Centraliza o título
+    margin-bottom: $spacing-lg;     // Espaço abaixo
+  }
+
+  // Grid de projetos
+  .project-grid {
+    display: grid;                  // Ativa o CSS Grid
+    gap: $spacing-md;               // Espaço entre os projetos
+    grid-template-columns: 1fr;     // 1 coluna no mobile
+
+    // ===== CARDS DOS PROJETOS =====
+    .project-card {
+      background-color: $white;     // Fundo branco para o card
+      border-radius: $border-radius; // Bordas arredondadas
+      padding: $spacing-md;         // Espaço interno
+      @include box-shadow();        // Sombra suave
+      transition: $transition;      // Transição suave para hover
+
+      // Efeito ao passar o mouse
+      &:hover {
+        transform: translateY(-5px); // Levanta o card
+        @include box-shadow(0, 8px, 16px, rgba(0,0,0,0.15)); // Sombra mais forte
+      }
+
+      // Título do projeto
+      h3 {
+        color: $text-color;         // Cor do texto
+        margin-bottom: $spacing-sm; // Espaço abaixo
+        font-size: 1.3rem;
+      }
+
+      // Descrição do projeto
+      p {
+        color: $gray-dark;          // Cinza escuro
+        line-height: 1.5;
+        margin-bottom: $spacing-sm;
+      }
+
+      // Tecnologias usadas (tags)
+      .technologies {
+        display: flex;              // Layout em linha
+        flex-wrap: wrap;            // Permite quebra de linha
+        gap: 0.5rem;                // Espaço entre tags
+        margin-bottom: $spacing-md;
+
+        span {
+          display: inline-block;    // Força ficar em linha
+          white-space: nowrap;      // Impede quebra de texto dentro da tag
+          background-color: $primary-color; // Fundo azul
+          color: $white;             // Texto branco
+          padding: 0.25rem 0.5rem;   // Espaço interno pequeno
+          border-radius: 4px;        // Bordas arredondadas
+          font-size: 0.8rem;         // Texto pequeno
+        }
+      }
+
+      // Link do projeto
+      .project-link {
+        @include button-style();    // Usa o mixin do botão
+        display: inline-block;      // Permite margin-top
+        text-decoration: none;      // Remove sublinhado
+        text-align: center;         // Centraliza texto
+        
+        &:hover {
+          text-decoration: none;    // Mantém sem sublinhado no hover
+        }
+      }
+    }
+  }
+
+  // ===== RESPONSIVIDADE =====
+  // Tablet (768px ou mais) - 2 colunas
+  @include respond-to($breakpoint-tablet) {
+    .project-grid {
+      grid-template-columns: repeat(2, 1fr); // 2 colunas de tamanho igual
+    }
+  }
+
+  // Desktop (1024px ou mais) - 3 colunas
+  @include respond-to($breakpoint-desktop) {
+    padding: $spacing-lg * 1.5 0;   // Mais espaçamento
+
+    h2 {
+      font-size: 2.5rem;            // Título maior
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(3, 1fr); // 3 colunas
+      gap: $spacing-lg;             // Espaço maior entre cards
+    }
+  }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="ex01/css/main.css" />
+</head>
+
+<body>
+        <!-- CABEÇALHO COM MENU HAMBURGUER -->
+    <header class="header">
+      <nav class="nav-menu">
+        <!-- LOGO -->
+        <div class="logo">Ronaldo</div>
+        
+        <!-- BOTÃO MENU HAMBURGUER (visível apenas em mobile) -->
+        <button class="menu-toggle" aria-label="Abrir menu" id="menuToggle">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        
+        <!-- LISTA DE LINKS DO MENU -->
+        <ul class="nav-list" id="navList">
+          <li><a href="#home" class="nav-link">Início</a></li>
+          <li><a href="#about" class="nav-link">Sobre</a></li>
+          <li><a href="#projects" class="nav-link">Projetos</a></li>
+          <li><a href="#contact" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <!-- SEÇÃO INÍCIO -->
+        <section id="home" class="hero">
+            <h1>Olá, sou Ronaldo Silva</h1>
+            <p>Desenvolvedor Front-end</p>
+        </section>
+
+        <!-- SEÇÃO SOBRE -->
+        <section id="about" class="about">
+            <div class="about-container">
+                <h2>Sobre mim</h2>
+                <p>Sou um desenvolvedor front-end apaixonado por criar interfaces modernas e responsivas. Estou constantemente aprendendo novas tecnologias e buscando melhorar minhas habilidades.</p>
+                <div class="skills"></div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO PROJETOS -->
+        <section id="projects" class="projects">
+            <div class="projects-container">
+                <h2>Meus Projetos</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Portfólio Pessoal</h3>
+                        <p>Site responsivo desenvolvido com HTML, SASS e JavaScript.</p>
+                        <div class="technologies">
+                            <span>HTML</span>
+                            <span>SASS</span>
+                            <span>CSS Grid</span>
+                            <span>Responsivo</span>
+                        </div>
+                        <a href="#" class="project-link">Ver Projeto</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Landing Page Moderna</h3>
+                        <p>Página de captura com design moderno e animações CSS.</p>
+                        <div class="technologies">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Flexbox</span>
+                        </div>
+                        <a href="#" class="project-link">Ver Projeto</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Sistema de Tarefas</h3>
+                        <p>App para gerenciar tarefas diárias com localStorage.</p>
+                        <div class="technologies">
+                            <span>JavaScript</span>
+                            <span>LocalStorage</span>
+                            <span>CSS</span>
+                            <span>DOM</span>
+                        </div>
+                        <a href="#" class="project-link">Ver Projeto</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CONTATO -->
+        <section id="contact" class="contact">
+            <div class="contact-container">
+                <h2>Contato</h2>
+                <p class="contact-description">Entre em contato comigo para conversarmos sobre oportunidades, projetos ou colaborações.</p>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem:</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <p>&copy; 2025 Desenvolvido por Ronaldo Silva. Todos os direitos reservados.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

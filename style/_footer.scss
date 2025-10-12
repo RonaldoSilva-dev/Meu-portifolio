@@ -1,0 +1,30 @@
+// ===== RODAPÉ =====
+.footer {
+  background-color: $primary-color;  // Azul igual ao header
+  color: $white;                     // Texto branco
+  text-align: center;                // Texto centralizado
+  padding: $spacing-lg;              // Espaço interno grande
+  margin-top: auto;                  // Empurra para o final da página
+  
+  p {
+    margin: 0;                       // Remove margem padrão
+    font-size: 1rem;                 // Tamanho normal
+    opacity: 0.9;                    // Leve transparência
+    transition: $transition;         // Transição suave
+    
+    // Efeito sutil ao passar o mouse
+    &:hover {
+      opacity: 1;                    // Fica totalmente visível
+    }
+  }
+
+  // ===== RESPONSIVIDADE =====
+  // Tablet e desktop
+  @include respond-to($breakpoint-tablet) {
+    padding: $spacing-lg * 1.5;      // Mais espaçamento em telas maiores
+    
+    p {
+      font-size: 1.1rem;             // Texto um pouco maior
+    }
+  }
+}
