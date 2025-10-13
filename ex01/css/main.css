@@ -93,6 +93,9 @@
   border-radius: 2px;
 }
 @media (max-width: 768px) {
+  .header {
+    padding: 0.8rem;
+  }
   .header .menu-toggle {
     display: flex;
   }
@@ -126,9 +129,6 @@
   }
   .header .nav-list li a.active::after {
     display: none;
-  }
-  .header {
-    padding: 0.8rem;
   }
 }
 
@@ -210,7 +210,8 @@
   background: linear-gradient(135deg, rgba(236, 240, 241, 0.8), rgba(189, 195, 199, 0.2));
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 .projects::before {
   content: "";
@@ -264,7 +265,8 @@
   border-top: 5px solid #3498db;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 .project-card::before {
   content: "";
@@ -411,6 +413,10 @@
   transition: all 0.3s ease;
   background-color: rgba(236, 240, 241, 0.5);
   color: #1a252f;
+}
+.contact .contact-form .form-group input::-moz-placeholder, .contact .contact-form .form-group textarea::-moz-placeholder {
+  color: #7f8c8d;
+  opacity: 0.7;
 }
 .contact .contact-form .form-group input::placeholder, .contact .contact-form .form-group textarea::placeholder {
   color: #7f8c8d;
@@ -683,6 +689,4 @@ section {
   100% {
     transform: rotate(45deg) translateX(100%);
   }
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

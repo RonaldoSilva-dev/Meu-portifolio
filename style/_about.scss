@@ -1,59 +1,78 @@
-// ===== SEÇÃO SOBRE MIM =====
-.about {
-  padding: $spacing-lg 0;           // Espaço acima e abaixo (32px)
-  background-color: $white;         // Fundo branco
-  text-align: center;               // Texto centralizado
+// _about.scss - ATUALIZAÇÃO PARA TEMA AZUL
+// ===== SEÇÃO SOBRE MIM COM TEMA AZUL =====
+.about { // Seção "Sobre mim" do portfólio
+  padding: $spacing-xl 0; // Espaçamento vertical grande
+  background: linear-gradient(135deg, rgba($blue-light, 0.9), rgba($blue-medium, 0.1)); // 🎨 ALTERADO: Gradiente azul translúcido
+  text-align: center; // Texto centralizado
+  position: relative; // Para pseudo-elementos
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  backdrop-filter: blur(10px); // 🎨 NOVO: Efeito de desfoque no fundo
 
-  // Container para limitar a largura e centralizar
-  .about-container {
-    max-width: 800px;               // Largura máxima do conteúdo
-    margin: 0 auto;                 // Centraliza horizontalmente
-    padding: 0 $spacing-md;         // Espaço nas laterais (24px)
+  // 🎨 ALTERADO: Elemento decorativo superior com azul
+  &::before { // Pseudo-elemento para detalhe superior
+    content: ''; // Conteúdo vazio
+    position: absolute; // Posicionamento absoluto
+    top: 0; // Alinha ao topo
+    left: 50%; // Centraliza horizontalmente
+    transform: translateX(-50%); // Ajusta centralização
+    width: 100px; // Largura do elemento
+    height: 4px; // Altura do elemento
+    background: linear-gradient(90deg, $primary-color, $accent-color); // Gradiente azul-vermelho
+    border-radius: 2px; // Cantos arredondados
   }
 
-  // Título da seção
-  h2 {
-    color: $primary-color;          // Azul do site
-    font-size: 2rem;                // Tamanho grande
-    margin-bottom: $spacing-md;     // Espaço abaixo do título
+  .about-container { // Container do conteúdo sobre
+    max-width: 800px; // Largura máxima do conteúdo
+    margin: 0 auto; // Centraliza horizontalmente
+    padding: 0 $spacing-md; // Espaço nas laterais
+    position: relative; // Para contexto de posicionamento
+    z-index: 2; // Garante que fique acima dos pseudo-elementos
   }
 
-  // Parágrafo de descrição
-  p {
-    font-size: 1.1rem;              // Texto um pouco maior
-    line-height: 1.6;               // Espaçamento entre linhas
-    color: $gray-dark;              // Cinza escuro
-    margin-bottom: $spacing-md;     // Espaço abaixo do parágrafo
-  }
+  h2 { // Título "Sobre mim"
+    color: $secondary-color; // Azul profundo para contraste
+    font-size: 2.2rem; // Tamanho ajustado
+    margin-bottom: $spacing-lg; // Margem inferior
+    position: relative; // Para elemento decorativo
+    display: inline-block; // Para limitar largura do pseudo-elemento
 
-  // Container para habilidades (vamos adicionar depois)
-  .skills {
-    @include flex-center(row);      // Centraliza os itens
-    flex-wrap: wrap;                // Permite quebra de linha
-    gap: $spacing-sm;               // Espaço entre os itens
-    margin-top: $spacing-lg;        // Espaço acima das habilidades
-  }
-
-  // ===== RESPONSIVIDADE =====
-  // Tablet (768px ou mais)
-  @include respond-to($breakpoint-tablet) {
-    padding: $spacing-lg * 1.5 0;   // Aumenta o espaçamento vertical
-
-    h2 {
-      font-size: 2.5rem;            // Título maior em tablets
+    &::after { // Pseudo-elemento para sublinhado
+      content: ''; // Conteúdo vazio
+      position: absolute; // Posicionamento absoluto
+      bottom: -10px; // Posiciona abaixo do texto
+      left: 50%; // Centraliza horizontalmente
+      transform: translateX(-50%); // Ajusta centralização
+      width: 80px; // Largura do sublinhado
+      height: 3px; // Altura do sublinhado
+      background: $accent-color; // Vermelho coral para destaque
+      border-radius: 2px; // Cantos arredondados
     }
-
-    p {
-      font-size: 1.2rem;            // Texto maior em tablets
-    }
   }
 
-  // Desktop (1024px ou mais)
-  @include respond-to($breakpoint-desktop) {
-    padding: $spacing-lg * 2 0;     // Ainda mais espaçamento
+  p { // Parágrafo de descrição
+    font-size: 1.1rem; // Texto um pouco maior
+    line-height: 1.7; // Altura de linha aumentada
+    color: $text-color; // Cor de texto principal
+    margin-bottom: $spacing-lg; // Espaço abaixo
+    text-align: left; // Texto alinhado à esquerda
+    background: rgba($white, 0.95); // 🎨 ALTERADO: Fundo branco semi-transparente
+    padding: $spacing-lg; // Padding interno
+    border-radius: $border-radius; // Cantos arredondados
+    box-shadow: 0 8px 25px rgba($blue-darker, 0.1); // 🎨 ALTERADO: Sombra azul suave
+    border-left: 4px solid $primary-color; // Borda lateral azul
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+    backdrop-filter: blur(5px); // 🎨 NOVO: Efeito de desfoque sutil
+  }
 
-    .about-container {
-      max-width: 1000px;            // Container mais largo
-    }
+  .skills { // Container das habilidades
+    @include flex-center(row); // Centraliza os itens
+    flex-wrap: wrap; // Permite quebra de linha
+    gap: $spacing-md; // Espaço entre itens
+    margin-top: $spacing-xl; // Margem superior
+    padding: $spacing-lg; // Padding interno
+    background: rgba($white, 0.9); // 🎨 ALTERADO: Fundo branco semi-transparente
+    border-radius: $border-radius; // Cantos arredondados
+    box-shadow: 0 8px 25px rgba($blue-darker, 0.1); // 🎨 ALTERADO: Sombra azul suave
+    border: 1px solid rgba($primary-color, 0.1); // 🎨 NOVO: Borda azul sutil
   }
 }

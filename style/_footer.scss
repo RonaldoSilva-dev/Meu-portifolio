@@ -1,30 +1,160 @@
-// ===== RODAPÉ =====
-.footer {
-  background-color: $primary-color;  // Azul igual ao header
-  color: $white;                     // Texto branco
-  text-align: center;                // Texto centralizado
-  padding: $spacing-lg;              // Espaço interno grande
-  margin-top: auto;                  // Empurra para o final da página
-  
-  p {
-    margin: 0;                       // Remove margem padrão
-    font-size: 1rem;                 // Tamanho normal
-    opacity: 0.9;                    // Leve transparência
-    transition: $transition;         // Transição suave
-    
-    // Efeito sutil ao passar o mouse
-    &:hover {
-      opacity: 1;                    // Fica totalmente visível
-    }
-  }
+// _footer.scss
+// ===== RODAPÉ COM NOVA PALETA =====
+footer { // Elemento principal do rodapé que aparece no final da página
+  background: linear-gradient(135deg, $secondary-color, darken($secondary-color, 10%)); // 🎨 MELHORIA: Gradiente sutil com azul profundo
+  color: $white; // Define a cor do texto como branco para contraste máximo
+  padding: $spacing-lg; // Adiciona espaçamento interno grande (ex: 2rem) em todos os lados
+  margin-top: auto; // Empurra o footer para baixo quando o conteúdo principal é menor que a viewport
+  width: 100%; // Garante que o footer ocupe 100% da largura
+  border-top: 4px solid $accent-color; // 🎨 NOVO: Borda superior com vermelho coral para identidade visual
+}
+
+// ===== LAYOUT DO FOOTER COM 4 COLUNAS EQUILIBRADAS =====
+.footer-container { // Container principal que envolve as 4 colunas
+  display: grid !important; // !important para forçar grid layout
+  grid-template-columns: 2fr 1fr 1fr 1fr !important; // Primeira coluna 2fr, outras 1fr cada para equilíbrio
+  gap: $spacing-lg; // Espaçamento grande entre colunas para melhor separação visual
+  max-width: 1200px; // Limita largura máxima para não ficar muito largo em telas grandes
+  margin: 0 auto; // Centraliza horizontalmente o container na página (0 top/bottom, auto left/right)
+  padding: 0 $spacing-md; // Adiciona padding lateral apenas (esquerda/direita) para respiro nas bordas
+  width: 100%; // Garante que o container ocupe 100% da largura disponível
+  align-items: start; // Alinha todas as colunas no topo para consistência visual
 
   // ===== RESPONSIVIDADE =====
-  // Tablet e desktop
-  @include respond-to($breakpoint-tablet) {
-    padding: $spacing-lg * 1.5;      // Mais espaçamento em telas maiores
+  // Tablets - 2 colunas
+  @media (max-width: $breakpoint-tablet) { // Media query para tablets
+    grid-template-columns: repeat(2, 1fr) !important; // Muda para 2 colunas de tamanho igual em tablets
+    gap: $spacing-md; // Mantém espaçamento médio entre colunas em tablets
+  }
+
+  // Mobile - 1 coluna  
+  @media (max-width: $breakpoint-mobile) { // Media query para dispositivos móveis
+    grid-template-columns: 1fr !important; // Muda para 1 coluna única em mobile
+    gap: $spacing-sm; // Reduz espaçamento para pequeno em telas móveis
+    text-align: center; // Centraliza todo o conteúdo textual em dispositivos móveis
+  }
+}
+
+.footer-col { // Estiliza cada coluna individual dentro do container grid
+  display: flex; // Ativa flexbox para organizar conteúdo verticalmente dentro de cada coluna
+  flex-direction: column; // Organiza elementos filhos em coluna (um abaixo do outro)
+  gap: $spacing-sm; // Define espaçamento consistente entre todos os elementos filhos da coluna
+  min-height: auto; // Remove altura mínima fixa para adaptação natural do conteúdo
+
+  // 🎨 ESTILO ESPECÍFICO PARA A PRIMEIRA COLUNA (DIREITOS AUTORAIS)
+  &:first-child { // Seleciona apenas a primeira coluna
+    padding-right: $spacing-md; // Adiciona padding à direita para separação visual das outras colunas
+    border-right: 1px solid rgba($white, 0.2); // 🎨 NOVO: Linha separadora sutil entre colunas
+  }
+
+  h3 { // Estiliza os títulos h3 de cada seção do footer
+    color: $white; // Cor branca para contraste máximo com o fundo escuro
+    margin-bottom: $spacing-sm; // Adiciona margem inferior para separar visualmente do conteúdo
+    font-size: 1.1rem; // Aumenta ligeiramente o tamanho da fonte para destaque hierárquico
+    font-weight: 600; // Adiciona peso semi-negrito para melhor legibilidade dos títulos
+    border-bottom: 2px solid $accent-color; // 🎨 ALTERADO: Linha inferior com vermelho coral para destaque
+    padding-bottom: 0.5rem; // Padding inferior para criar espaço entre texto e linha
+    text-transform: uppercase; // 🎨 NOVO: Texto em maiúsculas para destaque dos títulos
+    letter-spacing: 0.5px; // 🎨 NOVO: Espaçamento entre letras para melhor legibilidade
+  }
+
+  p { // Estiliza parágrafos dentro das colunas
+    color: rgba($white, 0.85); // 🎨 ALTERADO: Branco com 85% de opacidade para hierarquia suave
+    line-height: 1.5; // Altura de linha aumentada para melhor legibilidade do texto
+    margin: 0; // Remove margens padrão para usar sistema de gap do flexbox
+    font-size: 0.95rem; // Tamanho de fonte ligeiramente reduzido para hierarquia visual
+  }
+}
+
+// 🎨 ESTILOS ESPECÍFICOS PARA O GRUPO DE PARÁGRAFOS DE COPYRIGHT
+.footer-p { // Container específico para agrupar parágrafos de direitos autorais
+  display: flex; // Ativa flexbox para layout consistente
+  flex-direction: column; // Organiza parágrafos verticalmente
+  gap: 0.75rem; // Aumenta o gap para melhor separação visual entre parágrafos
+  
+  p { // Estiliza parágrafos dentro do grupo de copyright
+    font-size: 0.9rem; // Texto um pouco menor para criar hierarquia visual
+    color: rgba($white, 0.75); // 🎨 ALTERADO: Opacidade reduzida para texto secundário no footer
+    line-height: 1.4; // Altura de linha menor para textos curtos e compactos
+  }
+}
+
+// 🎨 ESTILOS PARA ELEMENTOS DE CONTATO
+#footer-contato { // Estiliza especificamente elementos de informações de contato
+  font-size: 0.9rem; // Reduz ligeiramente tamanho da fonte para diferenciação visual
+  display: flex; // Ativa flexbox para alinhar ícone e texto
+  align-items: center; // Centraliza verticalmente ícone e texto
+  gap: 0.5rem; // Adiciona espaçamento entre ícone e texto
+  margin-bottom: 0.5rem; // Adiciona margem inferior entre itens de contato
+  color: rgba($white, 0.9); // 🎨 ALTERADO: Branco com 90% de opacidade para melhor contraste
+  
+  // 🎨 ÍCONES ESPECÍFICOS VIA CSS PARA CONTATO
+  &:first-of-type::before { // Primeiro item de contato (email)
+    content: "📧 "; // Ícone de email para identificação visual rápida
+    font-size: 1rem; // Tamanho ligeiramente maior do ícone
+  }
+  
+  &:last-of-type::before { // Último item de contato (telefone)
+    content: "📞 "; // Ícone de telefone para identificação visual rápida
+    font-size: 1rem; // Tamanho ligeiramente maior do ícone
+  }
+}
+
+// 🎨 ESTILOS PARA ELEMENTOS DE STATUS DINÂMICOS
+#footer-hora,
+#footer-data,
+#footer-visitantes {
+  display: flex; // Flexbox para alinhar emoji e texto na mesma linha
+  align-items: center; // Centraliza verticalmente emoji e texto
+  gap: 0.5rem; // Espaço consistente entre emoji e texto
+  margin-bottom: 0.5rem; // Margem inferior entre itens de status
+  transition: $transition; // Adiciona transição suave para efeitos de interação
+  padding: 0.25rem 0; // Adiciona padding vertical para aumentar área clicável/hover
+  color: rgba($white, 0.9); // 🎨 ALTERADO: Branco com 90% de opacidade para consistência
+
+  &:hover { // Efeito quando usuário passa mouse sobre estes elementos
+    transform: translateX(5px); // Move ligeiramente para direita criando efeito sutil de interação
+    color: $white; // Garante cor branca sólida no hover para máximo contraste e feedback visual
+  }
+}
+
+.footer-col nav ul { // Estiliza lista de navegação dentro das colunas do footer
+  list-style: none; // Remove marcadores padrão (bolinhas) da lista não ordenada
+  padding: 0; // Remove padding padrão aplicado pelos navegadores
+  margin: 0; // Remove margem padrão aplicada pelos navegadores
+  display: flex; // Ativa flexbox para organizar itens da lista
+  flex-direction: column; // Organiza itens em coluna (um abaixo do outro)
+  gap: 0.75rem; // Aumenta o gap entre links para melhor legibilidade e área clicável
+
+  li { // Estiliza cada item individual da lista
+    transition: $transition; // Adiciona transição suave para efeitos de hover
     
-    p {
-      font-size: 1.1rem;             // Texto um pouco maior
+    &:hover { // Efeito quando usuário passa mouse sobre item da lista
+      transform: translateX(5px); // Move ligeiramente para direita indicando interatividade visual
+    }
+    
+    a { // Estiliza os links dentro dos itens da lista
+      color: rgba($white, 0.85); // 🎨 ALTERADO: Branco com 85% de opacidade para contraste suave
+      text-decoration: none; // Remove sublinhado padrão dos links para estética limpa
+      transition: $transition; // Adiciona transição suave para efeitos de hover
+      display: flex; // Flexbox para alinhar ícones (se adicionar posteriormente)
+      align-items: center; // Centraliza verticalmente conteúdo do link
+      gap: 0.5rem; // Espaço para ícones futuros dentro dos links
+      padding: 0.5rem 0; // Aumenta o padding vertical para melhor área clicável
+      border-radius: 4px; // 🎨 NOVO: Cantos levemente arredondados para estética moderna
+      
+      &:hover { // Efeito quando usuário passa mouse sobre os links
+        color: $white; // Muda para branco sólido para máximo contraste e destaque
+        text-decoration: underline; // Adiciona sublinhado para indicar claramente que é clicável
+        transform: translateX(5px); // Move ligeiramente para direita reforçando interação
+        background: rgba($white, 0.1); // 🎨 NOVO: Fundo sutil no hover para melhor feedback visual
+      }
     }
   }
+}
+
+// 🎨 NOVO: ESTILOS PARA COPYRIGHT SYMBOL
+.footer-col p:first-child { // Seleciona o primeiro parágrafo de cada coluna (onde está o ©)
+  font-weight: 600; // Texto em negrito para destaque do copyright
+  color: $white; // Cor branca sólida para máximo contraste no elemento importante
 }

@@ -1,155 +1,162 @@
-// ===== CABEÇALHO RESPONSIVO =====
-.header {
-  background-color: #3498db;
-  padding: 1rem;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
+// _header.scss
+// ===== CABEÇALHO COM NOVA PALETA =====
+.header { // Estiliza o cabeçalho principal
+  background: linear-gradient(135deg, $primary-color, $secondary-color); // 🎨 NOVO: Gradiente azul harmonioso
+  padding: 1rem; // Padding padrão de 1rem
+  position: fixed; // Posiciona header fixo no topo
+  width: 100%; // Largura total da viewport
+  top: 0; // Alinha ao topo
+  z-index: 1000; // Garante que fique acima de outros elementos
+  box-shadow: 0 2px 10px rgba($dark-color, 0.1); // 🎨 NOVO: Sombra sutil com preto suave
 
-  .nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+  .nav-menu { // Estiliza o container do menu de navegação
+    display: flex; // Ativa flexbox para layout
+    justify-content: space-between; // Espaça logo e menu nas extremidades
+    align-items: center; // Centraliza verticalmente
+    max-width: 1200px; // Largura máxima do container
+    margin: 0 auto; // Centraliza horizontalmente
     position: relative; // Para posicionar o menu mobile
   }
 
   // LOGO
-  .logo {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    z-index: 1001; // Fica acima do menu mobile
+  .logo { // Estiliza o logo
+    color: $white; // Texto branco para contraste máximo
+    font-size: 1.5rem; // Tamanho de fonte do logo
+    font-weight: bold; // Peso negrito para destaque
+    z-index: 1001; // Garante que fique acima do menu mobile
+    text-shadow: 1px 1px 2px rgba($dark-color, 0.3); // 🎨 NOVO: Sombra de texto sutil
   }
 
   // ===== BOTÃO HAMBURGUER =====
-  .menu-toggle {
-    display: none; // Escondido em desktop
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 1001; // Fica acima de tudo
+  .menu-toggle { // Estiliza o botão hamburguer
+    display: none; // Escondido em desktop por padrão
+    flex-direction: column; // Organiza as linhas verticalmente
+    background: none; // Remove fundo padrão
+    border: none; // Remove borda padrão
+    cursor: pointer; // Muda cursor para pointer
+    padding: 0.5rem; // Padding interno
+    z-index: 1001; // Garante que fique acima de tudo
+    border-radius: 4px; // 🎨 NOVO: Cantos arredondados
+    transition: $transition; // Transição suave para hover
+
+    &:hover { // 🎨 NOVO: Efeito hover no botão
+      background: rgba($white, 0.1); // Fundo sutil ao passar mouse
+    }
 
     // As 3 linhas do ícone hamburguer
-    .hamburger-line {
-      width: 25px;
-      height: 3px;
-      background-color: white;
-      margin: 3px 0;
-      transition: all 0.3s ease;
+    .hamburger-line { // Estiliza cada linha do ícone
+      width: 25px; // Largura das linhas
+      height: 3px; // Altura das linhas
+      background-color: $white; // Cor branca para contraste
+      margin: 3px 0; // Espaço entre as linhas
+      transition: $transition; // Transição suave para animação
+      border-radius: 2px; // 🎨 NOVO: Linhas levemente arredondadas
     }
 
     // Efeito quando o menu está aberto (transforma em X)
-    &.active {
-      .hamburger-line:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+    &.active { // Estilos quando menu está ativo
+      .hamburger-line:nth-child(1) { // Primeira linha
+        transform: rotate(45deg) translate(5px, 5px); // Rotaciona e posiciona para formar X
+        background-color: $accent-color; // 🎨 NOVO: Muda cor para vermelho coral no active
       }
-      .hamburger-line:nth-child(2) {
-        opacity: 0; // Some a linha do meio
+      .hamburger-line:nth-child(2) { // Segunda linha
+        opacity: 0; // Torna a linha do meio invisível
       }
-      .hamburger-line:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
+      .hamburger-line:nth-child(3) { // Terceira linha
+        transform: rotate(-45deg) translate(7px, -6px); // Rotaciona e posiciona para formar X
+        background-color: $accent-color; // 🎨 NOVO: Muda cor para vermelho coral no active
       }
     }
   }
 
   // ===== LISTA DE LINKS =====
-  .nav-list {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
+  .nav-list { // Estiliza a lista de navegação
+    display: flex; // Layout horizontal para desktop
+    list-style: none; // Remove marcadores padrão
+    gap: 1rem; // 🎨 ALTERADO: Reduzi o gap para 1rem
+    margin: 0; // Remove margem padrão
+    padding: 0; // Remove padding padrão
 
-    li a {
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: all 0.3s ease;
+    li a { // Estiliza cada link do menu
+      color: $white; // Texto branco para contraste
+      text-decoration: none; // Remove sublinhado
+      padding: 0.5rem 1rem; // Padding interno
+      border-radius: $border-radius; // 🎨 ALTERADO: Usa variável de border-radius
+      transition: $transition; // Transição suave
+      font-weight: 500; // 🎨 NOVO: Peso médio para melhor legibilidade
+      position: relative; // 🎨 NOVO: Para pseudo-elementos
 
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-    }
-
-    // ===== VERSÃO MOBILE =====
-    @media (max-width: 768px) {
-      display: none; // Esconde o menu em mobile inicialmente
-      position: absolute;
-      top: 100%; // Abaixo do header
-      left: 0;
-      width: 100%;
-      background-color: #3498db;
-      flex-direction: column;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-      // Quando o menu está ativo (aberto)
-      &.active {
-        display: flex; // Mostra o menu
+      &:hover { // Estilos ao passar mouse
+        background-color: rgba($white, 0.15); // 🎨 ALTERADO: Fundo semi-transparente mais suave
+        color: $white; // Mantém texto branco
+        transform: translateY(-2px); // 🎨 NOVO: Efeito de levantar suave
       }
 
-      li {
-        margin: 1rem 0;
+      // Estilo quando o link está ativo (na seção atual)
+      &.active { // Estilos para link ativo
+        background-color: rgba($accent-color, 0.9); // 🎨 ALTERADO: Fundo com vermelho coral
+        color: $white; // Texto branco para contraste
         
-        a {
-          padding: 1rem;
-          display: block;
-          font-size: 1.2rem;
+        // Linha inferior indicadora
+        &::after { // Pseudo-elemento para linha indicadora
+          content: ''; // Conteúdo vazio
+          position: absolute; // Posicionamento absoluto
+          bottom: -8px; // 🎨 ALTERADO: Posiciona 8px abaixo do link
+          left: 50%; // Centraliza horizontalmente
+          transform: translateX(-50%); // Ajusta centralização
+          width: 60%; // 🎨 ALTERADO: Largura de 60% do link
+          height: 3px; // 🎨 ALTERADO: Altura da linha aumentada
+          background-color: $accent-color; // Cor do vermelho coral
+          border-radius: 2px; // 🎨 NOVO: Linha com cantos arredondados
         }
       }
     }
   }
 
-  // ===== RESPONSIVIDADE =====
-  // Mostrar botão hamburguer apenas em mobile
-  @media (max-width: 768px) {
-    .menu-toggle {
-      display: flex; // Mostra o botão hamburguer
+  // ===== VERSÃO MOBILE =====
+  @media (max-width: 768px) { // Media query para mobile
+    .menu-toggle { // Botão hamburguer
+      display: flex; // Mostra o botão hamburguer em mobile
+    }
+
+    .nav-list { // Lista de navegação mobile
+      display: none; // Esconde o menu em mobile inicialmente
+      position: absolute; // Posiciona absolutamente
+      top: 100%; // Posiciona abaixo do header
+      left: 0; // Alinha à esquerda
+      width: 100%; // Largura total
+      background: linear-gradient(135deg, $secondary-color, darken($secondary-color, 5%)); // 🎨 NOVO: Gradiente para mobile
+      flex-direction: column; // Layout vertical
+      padding: 1rem; // 🎨 ALTERADO: Padding reduzido
+      text-align: center; // Texto centralizado
+      box-shadow: 0 4px 15px rgba($dark-color, 0.2); // 🎨 ALTERADO: Sombra mais pronunciada
+      border-top: 3px solid $accent-color; // 🎨 NOVO: Borda superior com vermelho coral
+
+      // Quando o menu está ativo (aberto)
+      &.active { // Estilos quando menu mobile está ativo
+        display: flex; // Mostra o menu
+      }
+
+      li { // Estiliza cada item do menu mobile
+        margin: 0.5rem 0; // 🎨 ALTERADO: Margem reduzida
+        
+        a { // Estiliza links no menu mobile
+          padding: 0.8rem; // 🎨 ALTERADO: Padding ajustado
+          display: block; // Ocupa toda a largura
+          font-size: 1.1rem; // Tamanho de fonte maior
+          border-radius: 6px; // 🎨 NOVO: Cantos mais arredondados
+          
+          &.active { // Link ativo no mobile
+            background-color: $accent-color; // 🎨 ALTERADO: Fundo sólido vermelho coral
+            &::after { // Remove linha inferior no mobile
+              display: none; // Esconde a linha no layout vertical
+            }
+          }
+        }
+      }
     }
 
     // Ajustar padding do header em mobile
-    padding: 0.8rem;
+    padding: 0.8rem; // Padding menor em mobile
   }
-}
-// ===== LINK ATIVO NO MENU =====
-.nav-list {
-  // ... código anterior permanece ...
-
-  li a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    position: relative;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    // Estilo quando o link está ativo (na seção atual)
-    &.active {
-      background-color: rgba(255, 255, 255, 0.3);
-      
-      // Linha inferior indicadora
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80%;
-        height: 2px;
-        background-color: white;
-      }
-    }
-  }
-
 }

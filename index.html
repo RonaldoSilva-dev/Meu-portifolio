@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meu Portfólio</title>
-    <link rel="stylesheet" href="css/main.css" />
+    <meta charset="UTF-8" /> <!-- Define a codificação de caracteres para suportar acentos e caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Configura viewport para responsividade em dispositivos móveis -->
+    <meta name="description" content="Portfólio de Ronaldo Silva - Desenvolvedor Front End em formação. Confira meus projetos e entre em contato!" /> <!-- Meta description para SEO - melhora a descrição nos resultados de busca -->
+    <title>Meu Portfólio</title> <!-- Título que aparece na aba do navegador -->
+    <link rel="stylesheet" href="css/main.css" /> <!-- Link para o arquivo CSS compilado do Sass -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assest/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assest/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assest/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assest/images/favicon_io/site.webmanifest">
+    
 </head>
 
 <body>
-        <!-- CABEÇALHO COM MENU HAMBURGUER -->
+    <!-- CABEÇALHO COM MENU HAMBURGUER -->
     <header class="header">
       <nav class="nav-menu">
         <!-- LOGO -->
-        <div class="logo">Ronaldo</div>
+        <div class="logo">Ronaldo</div> <!-- Logo/Marca pessoal -->
         
         <!-- BOTÃO MENU HAMBURGUER (visível apenas em mobile) -->
-        <button class="menu-toggle" aria-label="Abrir menu" id="menuToggle" type="button">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
+        <button class="menu-toggle" aria-label="Abrir menu" id="menuToggle" type="button"> <!-- Botão acessível para abrir menu mobile -->
+          <span class="hamburger-line"></span> <!-- Linha do ícone hamburguer -->
+          <span class="hamburger-line"></span> <!-- Linha do ícone hamburguer -->
+          <span class="hamburger-line"></span> <!-- Linha do ícone hamburguer -->
         </button>
         
         <!-- LISTA DE LINKS DO MENU -->
         <ul class="nav-list" id="navList">
-          <li><a href="#home" class="nav-link">Início</a></li>
-          <li><a href="#about" class="nav-link">Sobre</a></li>
-          <li><a href="#projects" class="nav-link">Projetos</a></li>
-          <li><a href="#contact" class="nav-link">Contato</a></li>
+          <li><a href="#home" class="nav-link">Início</a></li> <!-- Link âncora para seção Home -->
+          <li><a href="#about" class="nav-link">Sobre</a></li> <!-- Link âncora para seção Sobre -->
+          <li><a href="#projects" class="nav-link">Projetos</a></li> <!-- Link âncora para seção Projetos -->
+          <li><a href="#contact" class="nav-link">Contato</a></li> <!-- Link âncora para seção Contato -->
         </ul>
       </nav>
     </header>
@@ -34,36 +40,38 @@
     <!-- CONTEÚDO PRINCIPAL -->
     <main>
         <!-- SEÇÃO INÍCIO -->
-        <section id="home" class="hero">
-            <h1>Olá, sou Ronaldo Silva</h1>
-            <p>Desenvolvedor Front-end</p>
+        <section id="home" class="hero"> <!-- Seção principal com ID para navegação -->
+            <h1>Olá, sou Ronaldo Silva</h1> <!-- Título principal -->
+            <p>Desenvolvedor Front-end em formação no curso de Front End (HTML, CSS/SCSS e Java Script - JS), promovido pela Softex do Estado de Pernambuco, pelo programa Bolsa Futuro Digital.</p> <!-- Subtítulo/descrição -->
         </section>
 
         <!-- SEÇÃO SOBRE -->
-        <section id="about" class="about">
-            <div class="about-container">
-                <h2>Sobre mim</h2>
-                <p>Sou um desenvolvedor front-end apaixonado por criar interfaces modernas e responsivas. Estou constantemente aprendendo novas tecnologias e buscando melhorar minhas habilidades.</p>
-                <div class="skills"></div>
+        <section id="about" class="about"> <!-- Seção sobre com ID para navegação -->
+            <div class="about-container"> <!-- Container para agrupar conteúdo -->
+                <h2>Sobre mim</h2> <!-- Título da seção -->                
+                <p>Servidor público na área de segurança pública da Cidade do Recife desde 2008. Mas já foi servidor do Estado de Pernambuco na área de segurança pública entre janeiro e agosto de 2008, quando integrou o Quadro da Polícia Científica.</p>
+                <p>Formação acadêmica: Bacharel em Direito pelo Centro Universitário Maurício de Nassau, diplomado no ano de 2014. Aprovado no exame da OAB, ano 2013.</p> <!-- Descrição pessoal -->
+                <div class="skills"></div> <!-- Container vazio para habilidades (será preenchido depois) -->
             </div>
         </section>
 
         <!-- SEÇÃO PROJETOS -->
-        <section id="projects" class="projects">
-            <div class="projects-container">
-                <h2>Meus Projetos</h2>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <h3>Portfólio Pessoal</h3>
-                        <p>Site responsivo desenvolvido com HTML, SASS e JavaScript.</p>
-                        <div class="technologies">
-                            <span>HTML</span>
-                            <span>SASS</span>
-                            <span>CSS Grid</span>
-                            <span>Responsivo</span>
+        <section id="projects" class="projects"> <!-- Seção projetos com ID para navegação -->
+            <div class="projects-container"> <!-- Container para agrupar conteúdo -->
+                <h2>Meus Projetos</h2> <!-- Título da seção -->
+                <div class="project-grid"> <!-- Grid para organizar os cards -->
+                    <div class="project-card"> <!-- Card individual do projeto -->
+                        <h3>Portfólio Pessoal</h3> <!-- Nome do projeto -->
+                        <p>Site responsivo desenvolvido com HTML, SASS e JavaScript.</p> <!-- Descrição do projeto -->
+                        <div class="technologies"> <!-- Container para tecnologias usadas -->
+                            <span>HTML</span> <!-- Tag de tecnologia -->
+                            <span>SASS</span> <!-- Tag de tecnologia -->
+                            <span>CSS Grid</span> <!-- Tag de tecnologia -->
+                            <span>Responsivo</span> <!-- Tag de tecnologia -->
                         </div>
-                        <a href="#" class="project-link">Ver Projeto</a>
+                        <a href="#" class="project-link">Ver Projeto</a> <!-- Link para o projeto -->
                     </div>
+                    <!-- REPETIR A ESTRUTURA ACIMA PARA OS OUTROS PROJETOS -->
                     <div class="project-card">
                         <h3>Landing Page Moderna</h3>
                         <p>Página de captura com design moderno e animações CSS.</p>
@@ -91,33 +99,71 @@
         </section>
 
         <!-- SEÇÃO CONTATO -->
-        <section id="contact" class="contact">
-            <div class="contact-container">
-                <h2>Contato</h2>
-                <p class="contact-description">Entre em contato comigo para conversarmos sobre oportunidades, projetos ou colaborações.</p>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nome:</label>
-                        <input type="text" id="name" name="name" required>
+        <section id="contact" class="contact"> <!-- Seção contato com ID para navegação -->
+            <div class="contact-container"> <!-- Container para agrupar conteúdo -->
+                <h2>Contato</h2> <!-- Título da seção -->
+                <p class="contact-description">Entre em contato comigo para conversarmos sobre oportunidades, projetos ou colaborações.</p> <!-- Descrição -->
+                <form class="contact-form"> <!-- Formulário de contato -->
+                    <div class="form-group"> <!-- Grupo de campo do formulário -->
+                        <label for="name">Nome:</label> <!-- Label acessível -->
+                        <input type="text" id="name" name="name" required> <!-- Campo obrigatório -->
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required> <!-- Campo de email com validação -->
                     </div>
                     <div class="form-group">
                         <label for="message">Mensagem:</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <textarea id="message" name="message" required></textarea> <!-- Campo de texto maior -->
                     </div>
-                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                    <button type="submit" class="submit-btn">Enviar Mensagem</button> <!-- Botão de submit -->
                 </form>
             </div>
         </section>
     </main>
 
     <!-- RODAPÉ -->
-    <footer class="footer">
-        <p>&copy; 2025 Desenvolvido por Ronaldo Silva. Todos os direitos reservados.</p>
+    <footer >
+        <div class="footer-container"> <!-- Container principal do footer para grid layout -->
+            <!-- PRIMEIRA COLUNA - Copyright -->
+            <div class="footer-col"> <!-- Primeira coluna do grid - direitos autorais -->
+                <h3>Direitos Autorais</h3> <!-- Título semântico da coluna -->
+                <p>&COPY; Copyright 2025 Desenvolvido por Ronaldo Silva.</p> <!-- Informação de copyright -->
+                <div class="footer-p"> <!-- Container para agrupar parágrafos relacionados -->
+                    <p>Página criada durante o curso de Front-End</p> <!-- Contexto educacional do projeto -->
+                    <p>Todos os direitos reservados.</p> <!-- Declaração formal de direitos -->
+                </div>
+            </div>
+            
+            <!-- SEGUNDA COLUNA - Redes Sociais -->
+            <div class="footer-col"> <!-- Segunda coluna do grid - redes sociais -->               
+                <h3>Redes Sociais</h3> <!-- Título da seção de redes sociais -->
+                <nav> <!-- Elemento de navegação semântico para links externos -->
+                    <ul> <!-- Lista não ordenada para organização dos links -->
+                        <li><a href="https://github.com/RonaldoSilva-dev" title="GitHub" target="_blank" rel="noopener">GitHub</a></li> <!-- Link para GitHub com atributos de segurança -->
+                        <li><a href="https://www.instagram.com/hwnaldinho_" title="Instagram" target="_blank" rel="noopener">Instagram</a></li> <!-- Link para Instagram com acessibilidade -->
+                        <li><a href="https://www.facebook.com/gcmronaldosilva" title="Facebook" target="_blank" rel="noopener">Facebook</a></li> <!-- Link para Facebook com prevenção de tabnabbing -->
+                    </ul>
+                </nav>
+            </div>
+            
+            <!-- TERCEIRA COLUNA - Contato -->
+            <div class="footer-col"> <!-- Terceira coluna do grid - informações de contato -->
+                <h3>Contato</h3> <!-- Título da seção de contato -->
+                <p id="footer-contato">E-mail: ronaldosilvadev@hotmail.com</p> <!-- Endereço de e-mail profissional -->
+                <p id="footer-contato">Telefone: (81) 98824-4387</p> <!-- Número de telefone com DDD -->
+            </div>
+
+            <!-- QUARTA COLUNA - Status -->
+            <div class="footer-col"> <!-- Quarta coluna do grid - status dinâmico do site -->
+                <h3>Status do Site</h3> <!-- Título descritivo para informações em tempo real -->
+                <p id="footer-hora">⏰ Carregando hora...</p> <!-- Elemento para exibição da hora atual com emoji -->
+                <p id="footer-data">📅 Carregando data...</p> <!-- Elemento para exibição da data atual com emoji -->
+                <p id="footer-visitantes">👥 Carregando visitantes...</p> <!-- Elemento para contador de visitas com emoji -->
+            </div>
+        </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Link para arquivo JavaScript -->
 </body>
 </html>
+

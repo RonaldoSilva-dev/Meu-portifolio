@@ -1,27 +1,61 @@
-// ===== CORES PRINCIPAIS =====
-$primary-color: #3498db;        // Azul principal do site
-$secondary-color: #2ecc71;      // Verde para destaques
-$text-color: #333;              // Cor do texto (cinza escuro)
-$background-color: #f9f9f9;     // Cor de fundo do site
-$white: #fff;                   // Branco
-$gray-light: #f5f5f5;           // Cinza claro para fundos
-$gray-dark: #777;               // Cinza escuro para textos secundários
+// _variables.scss - CORREÇÃO COMPLETA
+// ===== PALETA DE CORES PRINCIPAIS - TEMA AZUL =====
+$primary-color: #3498db;        // ✅ MANTIDO - Azul Jeans: cor primária principal
+$secondary-color: #2c3e50;      // ✅ MANTIDO - Azul Profundo: cor secundária
+$accent-color: #e74c3c;         // ✅ MANTIDO - Vermelho Coral: cor de destaque
+$support-color: #f39c12;        // ✅ MANTIDO - Laranja Dourado: cor de suporte
+
+// 🎨 NOVAS CORES PARA TEMA AZUL
+$blue-light: #ecf0f1;           // 🎨 NOVA - Azul Nuvem: fundo mais claro
+$blue-medium: #bdc3c7;          // 🎨 NOVA - Azul Prata: elementos médios  
+$blue-dark: #34495e;            // 🎨 NOVA - Azul Aço: fundo escuro
+$blue-darker: #2c3e50;          // 🎨 NOVA - Azul Profundo: quase preto azulado
+
+$white: #ffffff;                // ✅ MANTIDO - Branco puro
+$dark-color: #1a252f;           // 🎨 ALTERADO - Preto Azulado: mais escuro e azulado
+
+// ===== CORES DE TEXTO E FUNDO - TEMA AZUL =====
+$text-color: $dark-color;       // 🎨 ALTERADO: Texto com preto azulado
+$background-color: $blue-light; // 🎨 ALTERADO: Fundo principal azul claro
+$background-alt: $blue-dark;    // 🎨 NOVA: Fundo alternativo azul escuro
+
+$gray-light: $blue-medium;      // 🎨 ALTERADO: Reusa azul prata
+$gray-medium: #7f8c8d;          // 🎨 MANTIDO: Cinza médio
+$gray-dark: #5d6d7e;            // 🎨 ALTERADO: Cinza azulado escuro
+
+// ===== CORES DE ESTADO SEMÂNTICAS =====
+$success-color: #27ae60;        // ✅ MANTIDO - Verde Floresta: sucesso, confirmações positivas
+$warning-color: $support-color; // 🎨 OTIMIZADO - Reusa laranja dourado para alertas
+$error-color: $accent-color;    // 🎨 OTIMIZADO - Reusa vermelho coral para erros
+$info-color: $primary-color;    // 🎨 OTIMIZADO - Reusa azul jeans para informações
+
+// ===== CORES ESPECÍFICAS PARA ELEMENTOS =====
+$text-muted: $gray-medium;      // 🎨 ALTERADO - Texto menos importante usa cinza médio
+$border-color: $gray-dark;      // 🎨 NOVA - Cor padrão para bordas e separadores
+$shadow-color: rgba(0, 0, 0, 0.1); // 🎨 NOVA - Cor padrão para sombras suaves
 
 // ===== TIPOGRAFIA =====
-$font-primary: 'Arial', sans-serif;  // Fonte principal
-$font-size-base: 16px;               // Tamanho base do texto
+$font-primary: 'Arial', sans-serif;     // ✅ MANTIDO - Fonte principal
+$font-size-base: 16px;                  // ✅ MANTIDO - Tamanho base
+$font-size-sm: 0.875rem;                // ✅ MANTIDO - Texto pequeno
+$font-size-lg: 1.125rem;                // ✅ MANTIDO - Texto grande
+$font-size-xl: 1.25rem;                 // ✅ MANTIDO - Subtítulo
+$line-height-base: 1.6;                 // ✅ MANTIDO - Altura de linha
 
 // ===== ESPAÇAMENTOS =====
-$spacing-sm: 1rem;    // Espaço pequeno (16px)
-$spacing-md: 1.5rem;  // Espaço médio (24px)
-$spacing-lg: 2rem;    // Espaço grande (32px)
+$spacing-xs: 0.5rem;            // ✅ MANTIDO - Espaço extra pequeno
+$spacing-sm: 1rem;              // ✅ MANTIDO - Espaço pequeno
+$spacing-md: 1.5rem;            // ✅ MANTIDO - Espaço médio
+$spacing-lg: 2rem;              // ✅ MANTIDO - Espaço grande
+$spacing-xl: 3rem;              // ✅ MANTIDO - Espaço extra grande
 
 // ===== RESPONSIVIDADE =====
-$breakpoint-mobile: 480px;   // Celulares
-$breakpoint-tablet: 768px;   // Tablets
-$breakpoint-desktop: 1024px; // Desktops
+$breakpoint-mobile: 480px;      // ✅ MANTIDO - Mobile first
+$breakpoint-tablet: 768px;      // ✅ MANTIDO - Tablets
+$breakpoint-desktop: 1024px;    // ✅ MANTIDO - Desktops
 
 // ===== EFEITOS VISUAIS =====
-$border-radius: 8px;                               // Arredondamento de bordas
-$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);        // Sombra padrão
-$transition: all 0.3s ease;                        // Transição suave
+$border-radius: 8px;            // ✅ MANTIDO - Raio de borda
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);     // ✅ MANTIDO - Sombra padrão
+$box-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1); // ✅ MANTIDO - Sombra grande
+$transition: all 0.3s ease;     // ✅ MANTIDO - Transição padrão
