@@ -5,6 +5,7 @@
   background: linear-gradient(135deg, rgba($blue-light, 0.8), rgba($blue-medium, 0.2)); // Gradiente azul
   position: relative; // Para pseudo-elementos
   overflow: hidden; // Previne overflow
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px); // Efeito de desfoque
 
   &::before { // Elemento decorativo superior
@@ -61,6 +62,7 @@
   border-top: 5px solid $primary-color; // Borda superior azul
   position: relative; // Para pseudo-elementos
   overflow: hidden; // Esconde overflow
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px); // Efeito de desfoque
 
   &::before { // Efeito de brilho
