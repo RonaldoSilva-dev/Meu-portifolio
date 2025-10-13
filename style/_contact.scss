@@ -1,0 +1,134 @@
+// _contact.scss - ATUALIZAÇÃO PARA TEMA AZUL  
+// ===== SEÇÃO CONTATO COM TEMA AZUL =====
+.contact { // Seção de contato
+  padding: $spacing-xl 0; // Espaçamento vertical
+  background: linear-gradient(135deg, rgba($blue-light, 0.7), rgba($blue-dark, 0.1)); // 🎨 ALTERADO: Gradiente azul translúcido
+  position: relative; // Para pseudo-elementos
+  overflow: hidden; // Previne overflow
+  -webkit-backdrop-filter: blur(5px); // 🎨 NOVO: Efeito de desfoque para Safari
+  backdrop-filter: blur(5px); // 🎨 NOVO: Efeito de desfoque
+
+  &::before { // Elemento decorativo
+    content: ''; // Conteúdo vazio
+    position: absolute; // Posicionamento absoluto
+    bottom: 0; // Alinha na base
+    left: 0; // Alinha à esquerda
+    right: 0; // Alinha à direita
+    height: 4px; // Altura fina
+    background: linear-gradient(90deg, $support-color, $accent-color, $primary-color); // Gradiente tricolor
+  }
+
+  .contact-container { // Container principal
+    max-width: 800px; // Largura máxima
+    margin: 0 auto; // Centraliza
+    padding: 0 $spacing-md; // Padding lateral
+    position: relative; // Para z-index
+    z-index: 2; // Acima dos pseudo-elementos
+  }
+
+  h2 { // Título
+    color: $secondary-color; // Azul profundo
+    font-size: 2.2rem; // Tamanho destacado
+    text-align: center; // Centralizado
+    margin-bottom: $spacing-md; // Espaço abaixo
+
+    &::after { // Destaque decorativo
+      content: ''; // Conteúdo vazio
+      position: absolute; // Posicionamento absoluto
+      bottom: -10px; // Posiciona abaixo
+      left: 50%; // Centraliza
+      transform: translateX(-50%); // Ajusta
+      width: 80px; // Largura
+      height: 3px; // Altura
+      background: $accent-color; // Vermelho coral
+      border-radius: 2px; // Cantos arredondados
+    }
+  }
+
+  .contact-description { // Descrição
+    text-align: center; // Centralizado
+    color: $gray-medium; // Cinza médio
+    margin-bottom: $spacing-xl; // Margem inferior
+    font-size: 1.1rem; // Tamanho maior
+    line-height: 1.6; // Altura confortável
+    max-width: 600px; // Largura máxima
+    margin-left: auto; // Centraliza
+    margin-right: auto; // Centraliza
+  }
+
+  .contact-form { // Formulário
+    display: flex; // Flexbox
+    flex-direction: column; // Coluna
+    gap: $spacing-lg; // Espaço entre campos
+    background: rgba($white, 0.95); // 🎨 ALTERADO: Fundo branco semi-transparente
+    padding: $spacing-xl; // Padding generoso
+    border-radius: $border-radius; // Cantos arredondados
+    box-shadow: 0 15px 35px rgba($blue-darker, 0.15); // 🎨 ALTERADO: Sombra azul
+    border: 1px solid rgba($primary-color, 0.1); // 🎨 ALTERADO: Borda azul sutil
+    border-top: 5px solid $primary-color; // Borda superior azul
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); // 🎨 NOVO: Efeito de desfoque
+
+    .form-group { // Grupo de campos
+      display: flex; // Flexbox
+      flex-direction: column; // Coluna
+      
+      label { // Label
+        color: $secondary-color; // Azul profundo
+        margin-bottom: $spacing-sm; // Espaço abaixo
+        font-weight: 600; // Negrito
+      }
+
+      input, textarea { // Campos
+        padding: $spacing-md; // Padding
+        border: 2px solid $blue-medium; // 🎨 ALTERADO: Borda azul prata
+        border-radius: $border-radius; // Cantos arredondados
+        font-size: 1rem; // Tamanho legível
+        font-family: $font-primary; // Fonte consistente
+        transition: all 0.3s ease; // Transição suave
+        background-color: rgba($blue-light, 0.5); // 🎨 ALTERADO: Fundo azul claro
+        color: $text-color; // Cor de texto
+
+        &::placeholder { // Placeholder
+          color: $gray-medium; // Cinza médio
+          opacity: 0.7; // Transparência
+        }
+
+        &:focus { // Foco
+          outline: none; // Remove outline
+          border-color: $primary-color; // Borda azul
+          background-color: rgba($white, 0.9); // 🎨 ALTERADO: Fundo branco
+          box-shadow: 0 0 0 3px rgba($primary-color, 0.1); // Sombra azul
+          transform: translateY(-2px); // Elevação
+        }
+      }
+
+      textarea { // Área de texto
+        min-height: 150px; // Altura mínima
+        resize: vertical; // Redimensionamento vertical
+      }
+    }
+
+    .submit-btn { // Botão enviar
+      background: linear-gradient(135deg, $primary-color, darken($primary-color, 10%)); // Gradiente azul
+      color: $white; // Texto branco
+      border: none; // Sem borda
+      padding: $spacing-md $spacing-lg; // Padding
+      border-radius: $border-radius; // Cantos arredondados
+      cursor: pointer; // Cursor pointer
+      font-size: 1.1rem; // Tamanho maior
+      font-weight: 600; // Negrito
+      transition: all 0.3s ease; // Transição suave
+      align-self: center; // Centraliza
+      min-width: 200px; // Largura mínima
+      border: 2px solid transparent; // Borda transparente
+
+      &:hover { // Hover
+        background: linear-gradient(135deg, $secondary-color, darken($secondary-color, 10%)); // Gradiente azul escuro
+        transform: translateY(-3px); // Elevação
+        box-shadow: 0 10px 25px rgba($primary-color, 0.3); // Sombra azul
+        border-color: $accent-color; // Borda vermelha
+      }
+    }
+  }
+}

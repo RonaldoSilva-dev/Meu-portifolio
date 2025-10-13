@@ -1,51 +1,111 @@
-// ===== IMPORTAÇÕES =====
-@import 'variables';  // Importa as variáveis primeiro
-@import 'mixins';     // Depois os mixins (eles usam as variáveis)
-@import 'header';     // Estilos do cabeçalho
-//@import 'about'; // Estilos da seção (sobre mim)
-@import 'projects'; // Estilos da seção (Projetos)
-@import 'contact'; // Estilos da seção contato.
-@import 'footer'; // Estilos da seção do rodapé.
-// Vamos importar os outros depois que criarmos
+// main.scss - CORREÇÃO COMPLETA
+// ===== IMPORTAÇÕES SIMPLIFICADAS =====
+@import 'variables';    // Importa variáveis primeiro
+@import 'mixins';       // Importa mixins
+@import 'header';       // Importa estilos do cabeçalho
+@import 'about';        // Importa estilos da seção sobre
+@import 'projects';     // Importa estilos da seção projetos
+@import 'contact';      // Importa estilos da seção contato
+@import 'footer';       // Importa estilos do rodapé
 
-// ===== RESET BÁSICO =====
-* {
-  box-sizing: border-box;  // Inclui padding e border no cálculo de largura/altura
-  margin: 0;               // Remove margens padrão
-  padding: 0;              // Remove paddings padrão
+// ===== RESET BÁSICO APRIMORADO =====
+* { // Seleciona todos os elementos da página
+  box-sizing: border-box; // Inclui padding e border no cálculo de width/height
+  margin: 0; // Remove margens padrão
+  padding: 0; // Remove paddings padrão
+  
+  &::before, // Aplica aos pseudo-elementos ::before
+  &::after { // Aplica aos pseudo-elementos ::after
+    box-sizing: inherit; // Herda box-sizing do elemento pai
+  }
 }
 
-// ===== ESTILOS GLOBAIS =====
-body {
-  font-family: $font-primary;     // Usa a fonte definida nas variáveis
-  font-size: $font-size-base;     // Tamanho base de fonte
-  color: $text-color;             // Cor do texto
-  background: $background-color;  // Cor de fundo
-  line-height: 1.6;               // Espaçamento entre linhas
-  padding-top: 60px;              // Compensa o header fixo
+// ===== ESTILOS GLOBAIS APRIMORADOS - TEMA AZUL =====
+body { // Estiliza o elemento body
+  font-family: $font-primary; // Usa fonte primária
+  font-size: $font-size-base; // Tamanho base de fonte
+  color: $text-color; // Cor do texto principal
+  background: linear-gradient(135deg, $blue-light, darken($blue-light, 5%)); // Gradiente azul suave
+  line-height: $line-height-base; // Altura entre linhas
+  padding-top: 60px; // Espaço para header fixo
+  overflow-x: hidden; // Previne scroll horizontal
+  -webkit-font-smoothing: antialiased; // Melhora renderização WebKit
+  -moz-osx-font-smoothing: grayscale; // Melhora renderização Firefox
+  min-height: 100vh; // Altura mínima da viewport
+}
+
+main { // Elemento main
+  background: transparent; // Transparente para mostrar gradiente do body
+}
+
+// ===== SCROLL COMPORTAMENTO =====
+html { // Estiliza o elemento html
+  scroll-behavior: smooth; // Scroll suave para navegação
 }
 
 // ===== COMPENSAÇÃO PARA SCROLL SUAVE =====
-// Adiciona um "espaço" antes de cada seção para o scroll suave
-section {
-  scroll-margin-top: 80px; // Ajuste conforme a altura do seu header
+section { // Aplica a todas as seções
+  scroll-margin-top: 80px; // Margem para compensar header fixo
 }
 
-// ===== SEÇÃO HERO (INÍCIO) =====
-.hero {
-  @include flex-center(column);   // Centraliza em coluna
-  height: 100vh;                  // Altura total da tela
-  text-align: center;             // Texto centralizado
-  background: linear-gradient(135deg, $primary-color, $secondary-color); // Gradiente
-  
-  h1 {
-    color: $white;                // Texto branco
-    font-size: 2.5rem;            // Tamanho grande
-    margin-bottom: $spacing-md;   // Espaço abaixo
+// ===== SEÇÃO HERO =====
+.hero { // Seção hero/banner inicial
+  @include flex-center(column); // Centralização vertical/horizontal
+  height: 100vh; // Altura 100% da viewport
+  text-align: center; // Texto centralizado
+  background: linear-gradient(135deg, $primary-color, $secondary-color); // Gradiente azul
+  margin-bottom: $spacing-xl; // Margem inferior grande
+  position: relative; // Para pseudo-elementos
+  overflow: hidden; // Esconde overflow
+
+  // Efeito de partículas sutis
+  &::before { // Pseudo-elemento para profundidade
+    content: ''; // Conteúdo vazio
+    position: absolute; // Posicionamento absoluto
+    top: 0; left: 0; right: 0; bottom: 0; // Ocupa todo o espaço
+    background: radial-gradient(circle at 20% 80%, rgba($accent-color, 0.1) 0%, transparent 50%), // Gradiente radial vermelho
+                radial-gradient(circle at 80% 20%, rgba($support-color, 0.1) 0%, transparent 50%); // Gradiente radial laranja
+    pointer-events: none; // Permite interação
   }
   
-  p {
-    color: $white;
-    font-size: 1.2rem;
+  h1 { // Título principal
+    color: $white; // Texto branco
+    font-size: 2.5rem; // Tamanho grande
+    margin-bottom: $spacing-md; // Espaço abaixo
+    text-shadow: 2px 2px 4px rgba($dark-color, 0.3); // Sombra de texto
+    position: relative; // Para animação
+    z-index: 2; // Acima do fundo
+  }
+  
+  p { // Subtítulo/descrição
+    color: rgba($white, 0.9); // Branco com opacidade
+    font-size: $font-size-lg; // Tamanho grande
+    max-width: 600px; // Largura máxima
+    margin: 0 auto; // Centraliza
+    line-height: 1.6; // Altura de linha
+    position: relative; // Para animação
+    z-index: 2; // Acima do fundo
+  }
+
+  // Efeito de brilho animado
+  &::after { // Pseudo-elemento para brilho
+    content: ''; // Conteúdo vazio
+    position: absolute; // Posicionamento absoluto
+    top: -50%; left: -50%; // Posiciona fora
+    width: 200%; height: 200%; // Tamanho maior
+    background: linear-gradient(45deg, transparent, rgba($white, 0.1), transparent); // Gradiente de brilho
+    transform: rotate(45deg); // Rotaciona
+    animation: shine 3s infinite; // Animação contínua
+    pointer-events: none; // Permite interação
+  }
+}
+
+// Animação do brilho
+@keyframes shine { // Define animação
+  0% { // Estado inicial
+    transform: rotate(45deg) translateX(-100%); // Fora da tela esquerda
+  }
+  100% { // Estado final
+    transform: rotate(45deg) translateX(100%); // Fora da tela direita
   }
 }

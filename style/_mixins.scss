@@ -1,42 +1,45 @@
+// _mixins.scss
+@import 'variables';    // ✅ Importa variáveis para usar dentro dos mixins
+
 // Mixin para centralizar elementos com Flexbox
-@mixin flex-center($direction: row) {
-  display: flex;
-  justify-content: center;  // Centraliza horizontalmente
-  align-items: center;      // Centraliza verticalmente
-  flex-direction: $direction; // Direção (row = linha, column = coluna)
+@mixin flex-center($direction: row) { // Define mixin com parâmetro opcional para direção (padrão: row)
+  display: flex; // Ativa display flex
+  justify-content: center; // Centraliza horizontalmente
+  align-items: center; // Centraliza verticalmente
+  flex-direction: $direction; // Define direção do flex (row = linha, column = coluna)
 }
 
 // Mixin para sombra com valores personalizáveis
-@mixin box-shadow($x: 0, $y: 4px, $blur: 8px, $color: rgba(0,0,0,0.1)) {
-  box-shadow: $x $y $blur $color;
+@mixin box-shadow($x: 0, $y: 4px, $blur: 8px, $color: rgba(0,0,0,0.1)) { // Define mixin com parâmetros padrão
+  box-shadow: $x $y $blur $color; // Aplica propriedade box-shadow com os parâmetros
 }
 
 // Mixin para media queries (responsividade)
-@mixin respond-to($breakpoint) {
-  @media (min-width: $breakpoint) {
-    @content;  // Aqui vai o CSS que você escrever dentro do mixin
+@mixin respond-to($breakpoint) { // Define mixin que recebe breakpoint como parâmetro
+  @media (min-width: $breakpoint) { // Cria media query para telas maiores ou iguais ao breakpoint
+    @content; // Inclui o conteúdo CSS passado dentro do mixin
   }
 }
 
 // Mixin para estilizar botões
-@mixin button-style($bg-color: $primary-color, $text-color: $white) {
-  background-color: $bg-color;
-  color: $text-color;
-  border: none;
-  padding: $spacing-sm $spacing-md;
-  border-radius: $border-radius;
-  cursor: pointer;
-  transition: $transition;
-  @include box-shadow();
+@mixin button-style($bg-color: $primary-color, $text-color: $white) { // Define mixin com cores padrão
+  background-color: $bg-color; // Define cor de fundo do botão
+  color: $text-color; // Define cor do texto
+  border: none; // Remove borda padrão
+  padding: $spacing-sm $spacing-md; // Usa variáveis de espaçamento para padding
+  border-radius: $border-radius; // Usa variável de raio de borda
+  cursor: pointer; // Muda cursor para pointer indicando elemento clicável
+  transition: $transition; // Usa variável de transição para efeitos suaves
+  @include box-shadow(); // Aplica mixin de sombra padrão
   
   // Efeito ao passar o mouse
-  &:hover {
-    background-color: darken($bg-color, 10%); // Escurece 10%
-    transform: translateY(-2px); // Levanta o botão
+  &:hover { // Estilos aplicados quando usuário passa mouse sobre o botão
+    background-color: darken($bg-color, 10%); // Escurece cor de fundo em 10% usando função Sass
+    transform: translateY(-2px); // Move botão 2px para cima (efeito de levantar)
   }
   
   // Efeito ao clicar
-  &:active {
-    transform: translateY(0); // Volta à posição original
+  &:active { // Estilos aplicados quando botão está sendo clicado
+    transform: translateY(0); // Retorna botão à posição original
   }
 }
